@@ -1,0 +1,392 @@
+---
+title: "Attud - Brief Report - Updated"
+author: "Henrique Pinto Gomide"
+date: "09-01-2015"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    highlight: tango
+    number_sections: yes
+    theme: spacelab
+    toc: yes
+  word_document: default
+---
+
+# Introduction
+
+This is final report on the survey "International Needs for Treating Tobacco Use". The survey aimed to understand the needs of tobacco treatment provider.
+
+# Methods
+
+All tools used to collect, evaluate quality, analyze data were freeware or/and Open-source. For data collection we have used Ona (https://ona.io/), for data analysis R (R Core Team, 2015) using ggplot2 and sjPlot packages. This report was created using RMarkdown.
+
+# Results
+
+```{r include=FALSE, message=FALSE}
+
+####################################
+# Load libraries, open dataframe
+####################################
+
+# Load dataframe
+require("ggplot2")
+require("sjPlot")
+require("ggthemes")
+library(sjPlot)  # for plotting
+library(sjmisc)  # for sample data
+library(ggplot2) # to access ggplot-themes
+library(RColorBrewer)
+
+# Set theme for charts
+sjp.setTheme(axis.textsize.y = .9, axis.textsize.x = .8)
+
+sjp.setTheme(geom.outline.color = "antiquewhite4", 
+             geom.outline.size = 1, 
+             geom.label.size = 2,
+             geom.label.color = "grey50",
+             title.color = "red", 
+             title.size = 1.5, 
+             axis.angle.x = 45, 
+             axis.textcolor = "blue", 
+             base = theme_bw())
+
+
+# Set outputs for three decimal places
+options(digits = 1)
+
+# Read all data but Spanish
+attud <- read.csv("attudRawData.csv", na.strings=c("n/a", "NA"), stringsAsFactors = TRUE)
+
+# Map
+world <- read.csv("freqTablebyCountry.csv", na.strings=c("n/a", "NA"), stringsAsFactors = FALSE)
+
+#####################################
+# Fix small errors
+#####################################
+
+# Convert negative value into NA attud$group5.group8.q15. I checked two cases with negative ages. Although they were inserted wrong they seem valid - #125 and #157.
+
+## Age
+attud$group5.group8.q15 <- as.numeric(attud$group5.group8.q15)
+attud$group5.group8.q15 <- ifelse(attud$group5.group8.q15 < 0, NA, attud$group5.group8.q15)
+
+## Gender
+attud$group5.group8.q16 <- factor(attud$group5.group8.q16, labels = c("Male", "Female"))
+
+## Profession
+attud$group5.group8.q17 <- factor(attud$group5.group8.q17, labels = c("Physician", "Nurse","Psychologist", "Pharmacist", "Social worker", "Dentist", "Nurse assistant", "Community health worker", "Other"))
+
+## Map
+world <- world[,-1]
+world$continent <- world$region
+world$continent <- gsub("Eastern|South-Central|Western|Southern|Oceania;|Northern|Central East|West|Southeast|South-East|Middle East,|", "", world$continent)
+world$continent <- gsub("Arabian Peninsula, Middle East|Middle East|ern Europe,", "Asia", world$continent)
+world$continent <- gsub("North North America", "North America", world$continent)
+world$continent <- gsub("North  South America|ern South America", "South America", world$continent)
+world$continent <- gsub("Greater Antilles, Caribbean", "Central America", world$continent)
+world$continent <- gsub("Australia", "Oceania", world$continent)
+world$continent <- gsub("Africa, Asia|Asia  Asia", "Asia", world$continent)
+world$continent <- gsub("\\s+","",world$continent)
+names <- levels(factor(world$continent))
+continent <- data.frame(as.character(names), as.numeric(tapply(world$Freq, world$continent, sum)))
+names(continent) <- c("continent", "Freq")
+continent <- subset(continent, continent != "Antarctica" ) # Remove an error.
+continent$percen <- round(continent$Freq / sum(continent$Freq),3)*100
+
+## World Bank Income Classification
+#Recode Income (Low/Low Upper collapsed )
+
+attud$Income[attud$group5.group8.q18 == "a18"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a183"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a2"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a192"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a208"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a171"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a228"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a22"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a28"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a45"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a48"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a47"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a59"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a76"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a61"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a70"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a68"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a234"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a17"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a167"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a71"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a206"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a187"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a224"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a225"] <- "1-High"
+attud$Income[attud$group5.group8.q18 == "a38"] <- "2-Upper middle"
+attud$Income[attud$group5.group8.q18 == "a66"] <- "2-Upper middle"
+attud$Income[attud$group5.group8.q18 == "a103"] <- "2-Upper middle"
+attud$Income[attud$group5.group8.q18 == "a8"] <- "2-Upper middle"
+attud$Income[attud$group5.group8.q18 == "a127"] <- "2-Upper middle"
+attud$Income[attud$group5.group8.q18 == "a162"] <- "2-Upper middle"
+attud$Income[attud$group5.group8.q18 == "a218"] <- "2-Upper middle"
+attud$Income[attud$group5.group8.q18 == "a40"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a148"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a222"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a25"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a135"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a182"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a32"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a108"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a151"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a158"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a21"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a229"] <- "3-Low/Lower middle"
+attud$Income[attud$group5.group8.q18 == "a14"] <- NA
+
+attud$Income <- as.factor(attud$Income)
+
+#Natural
+
+attud$bank[attud$group5.group8.q18 == "a18"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a183"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a2"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a192"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a208"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a171"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a228"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a22"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a28"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a45"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a48"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a47"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a59"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a76"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a61"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a70"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a68"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a234"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a17"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a167"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a71"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a206"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a187"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a224"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a225"] <- "1-High"
+attud$bank[attud$group5.group8.q18 == "a38"] <- "2-Upper middle"
+attud$bank[attud$group5.group8.q18 == "a66"] <- "2-Upper middle"
+attud$bank[attud$group5.group8.q18 == "a103"] <- "2-Upper middle"
+attud$bank[attud$group5.group8.q18 == "a8"] <- "2-Upper middle"
+attud$bank[attud$group5.group8.q18 == "a127"] <- "2-Upper middle"
+attud$bank[attud$group5.group8.q18 == "a162"] <- "2-Upper middle"
+attud$bank[attud$group5.group8.q18 == "a218"] <- "2-Upper middle"
+attud$bank[attud$group5.group8.q18 == "a40"] <- "4-Low"
+attud$bank[attud$group5.group8.q18 == "a148"] <- "4-Low"
+attud$bank[attud$group5.group8.q18 == "a222"] <- "4-Low"
+attud$bank[attud$group5.group8.q18 == "a25"] <- "3-Lower middle"
+attud$bank[attud$group5.group8.q18 == "a135"] <- "3-Lower middle"
+attud$bank[attud$group5.group8.q18 == "a182"] <- "3-Lower middle"
+attud$bank[attud$group5.group8.q18 == "a32"] <- "3-Lower middle"
+attud$bank[attud$group5.group8.q18 == "a108"] <- "3-Lower middle"
+attud$bank[attud$group5.group8.q18 == "a151"] <- "3-Lower middle"
+attud$bank[attud$group5.group8.q18 == "a158"] <- "3-Lower middle"
+attud$bank[attud$group5.group8.q18 == "a21"] <- "3-Lower middle"
+attud$bank[attud$group5.group8.q18 == "a229"] <- "3-Lower middle"
+attud$bank[attud$group5.group8.q18 == "a14"] <- NA
+
+attud$bank <- as.factor(attud$bank)
+
+
+
+```
+
+
+## Participants
+
+The data reported here were collected from `r dim(attud)[1]` valid cases. One case was considered invalid (test submission), thus removed. Most of participants were women `r prop.table(table(attud$group5.group8.q16))[2]*100`% with mean age of `r mean(attud$group5.group8.q15, na.rm = TRUE)` (SD = `r sd(attud$group5.group8.q15, na.rm = TRUE)`). 
+
+## Profession
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+sjp.frq(attud$group5.group8.q17, geom.colors = "#91bfdb", coord.flip = TRUE,  sort.frq = "asc")
+```
+
+## World Bank Classification
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+#ggplot(continent, aes(x = names, y = Freq)) + geom_bar(stat="identity")
+```
+
+## Income
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+sjp.frq(attud$bank,  sort.frq = "asc")
+```
+
+## Are you a member of Attud?
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.group8.q19 <- factor(attud$group5.group8.q19, labels = c("Yes", "No", "Not sure"))
+sjp.frq(attud$group5.group8.q19, geom.colors = "#fc8d59")
+```
+
+## Are you a member of Attud? - World Bank Classification
+```{r}
+sjp.xtab(attud$group5.group8.q19, attud$Income, margin = "col", axis.titles = "", title = "Are you a member of Attud?", rev.order=F, show.n=T, show.summary=T, prnt.plot=T, show.total = FALSE)
+```
+
+# Practioner Role and Trainning
+
+## How did you learn how to treat tobacco dependence?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+question1  <- attud[, 1:7]
+q1labels <- c("Studied written materials", "Studied information on web", "Received instruction during my health profession education", "Completed an online training course designed for tobacco treatment", "Attended an in-person training designed for tobacco treatment", "Never learned how to treat tobacco", "None of the above")
+
+items <- c("Question 1", "Question 2", "Question 3", "Question 4", "Question 5")
+
+sjp.likert(question1, catcount = 2, geom.colors = c("#fc8d59","#91bfdb"), axis.labels =q1labels)
+```
+
+##  What tobacco treatment activities do you currently perform?
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+question2  <- attud[, 9:14]
+q2labels  <- c("Treat tobacco users","Train others how to treat tobacco users", "Administer programs that treat tobacco", "Conduct research on tobacco treatment", "Develop policy related to tobacco treatment", "Other")
+sjp.likert(question2, catcount = 2, geom.colors = c("#fc8d59","#91bfdb"), axis.labels =q2labels)
+
+```
+
+# Tobacco Treatment Training in Your Country
+
+```{r}
+sjp.setTheme("theme_grey",
+             axis.title.size = .85, 
+             axis.textsize = .85, 
+             legend.size = .8, 
+             geom.label.size = 3,
+             geom.label.color = "black")
+```
+
+
+## Think back to your professional training curriculum. About how many hours of instruction in how to treat tobacco dependence were provided?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.q3 <- factor(attud$group5.q3, labels = c("0 hours", "1-2 hours", "3-4 hours", "5-6 hours", "More than 6 hours"))
+labels = c("0 hours", "1-2 hours", "3-4 hours", "5-6 hours", "More than 6 hours")
+sjp.frq(attud$group5.q3, geom.colors="grey", coord.flip = TRUE, expand.grid = T)
+```
+
+## Think back to your professional training curriculum. About how many hours of instruction in how to treat tobacco dependence were provided? - World Bank Classification
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+sjp.xtab(attud$group5.q3, attud$Income, margin = "col", title = "Hours of Instruction", axis.titles="", rev.order=F, show.n=T, show.summary=T, show.total = T, prnt.plot =FALSE, geom.colors = "Greys")$plot
+
+
+a<-sjp.xtab(attud$group5.q3, attud$Income, margin = "col", title = "Hours of Instruction", axis.titles="", rev.order=F, show.n=T, show.summary=T, show.total = T, prnt.plot =FALSE, geom.colors = "Greys")
+```
+
+## Outside of health care provider education, is any form of training for treating tobacco dependence available in your country?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.q4 <- factor(attud$group5.q4, labels = c("Yes", "No", "Not sure"))
+sjp.frq(attud$group5.q4, geom.colors = "#fc8d59")
+```
+
+## Outside of health care provider education, is any form of training for treating tobacco dependence available in your country? - World Bank Classification
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+sjp.xtab(attud$group5.q4, attud$Income, margin = "col", title ="Training for treating tobaco outside health care provider education", rev.order=F, show.n=T, axis.titles="", show.summary=T, show.total = T, prnt.plot =FALSE)$plot + theme_stata()
+```
+
+## Overall, how would you rate access to tobacco treatment training in your country?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+# Something may be wrong here. In the questionnaire are 6 options, but in the data just 4.
+attud$group5.q5 <- factor(attud$group5.q5, labels = c("Very Poor", "Poor", "Good", "Very Good", "No training is available"))
+sjp.frq(attud$group5.q5, geom.colors = "#91bfdb", coord.flip = TRUE)
+```
+
+## Overall, how would you rate access to tobacco treatment training in your country? World Bank Classification
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+sjp.xtab(attud$group5.q5, attud$Income, margin = "col", title = "Access to tabacco treatment", rev.order=F, show.n=T, show.summary=T, axis.titles="", show.total = T, prnt.plot =FALSE)$plot + theme_stata()
+
+data_access<-sjp.xtab(attud$group5.q5, attud$Income, margin = "col", title = "Access to tabacco treatment", rev.order=F, show.n=T, show.summary=T, axis.titles="", show.total = T, prnt.plot =FALSE)$mydf
+write.csv2(data_access, "~/ATTUD/data_access.csv")
+```
+
+## Overall, how would you rate the quality of the tobacco treatment training that is available in your country?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.q6 <- factor(attud$group5.q6, labels = c("No access", "Very poor access", "Poor access", "Good access", "Very good access", "Not sure"))
+sjp.frq(attud$group5.q6, geom.colors = "#91bfdb", coord.flip = TRUE)
+```
+
+
+## Overall, how would you rate the quality of the tobacco treatment training that is available in your country? World Bank Classification
+```{r}
+sjp.xtab(attud$group5.q6, attud$Income, margin = "col", axis.titles="", title = "Quality of the available tobacco training", rev.order=F, show.n=T, show.summary=T, show.total = F, prnt.plot =FALSE)$plot + theme_stata()
+```
+
+## Does your country have any form of professional certification for tobacco treatment?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.q8 <- factor(attud$group5.q8, labels = c("Yes", "No", "Not sure"))
+sjp.frq(attud$group5.q8, geom.colors = "#fc8d59")
+```
+
+## Does your country have any form of professional certification for tobacco treatment? World Bank Classification
+```{r}
+sjp.xtab(attud$group5.q8, attud$Income, margin = "col",axis.titles="", title = "Country Had Some Form of Professional Certification", rev.order=F, show.n=T, show.summary=T, show.total = T, prnt.plot =FALSE)$plot + theme_stata()
+```
+
+# Guidelines for Tobacco Treatment
+
+## Does your country have national guidelines for the treatment of tobacco dependence?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.group7.q11 <- factor(attud$group5.group7.q11, labels = c("Yes", "No", "Not sure"))
+sjp.frq(attud$group5.group7.q11, geom.colors = "#fc8d59")
+```
+
+## Does your country have national guidelines for the treatment of tobacco dependence? World Bank Classification
+```{r}
+sjp.xtab(attud$group5.group7.q11, attud$Income, margin = "col", rev.order=F, show.n=T,axis.titles="", title = "National Guidelines for Treatment of Tobacco Dependence", show.summary=T, show.total = T, prnt.plot =FALSE)$plot + theme_stata()
+```
+
+# Survey Collection
+
+## Access over time
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$X_submission_time  <- as.character(attud$X_submission_time)
+attud$X_submission_time <- gsub('T.*', '', attud$X_submission_time)
+attud$time  <- as.Date(attud$X_submission_time, format="%Y-%m-%d")
+ggplot(attud, aes(time)) + geom_density(colour = "#91bfdb", fill="#91bfdb") + labs(x = "Month", y = "Frequency") 
+```
+
+# Countries
+
+```{r}
+## Import list with uncoded countries
+uncoded  <- read.csv("R/uncodedCountries.csv")
+## Import list with coded countries
+coded <- read.csv("R/codedCountries.csv", col.names = c("code", "local_name"))
+## Merge the two lists
+listCountries  <- merge(coded, uncoded, by = "local_name")
+## Table results from attud questionnaire
+teste  <- as.data.frame(table(attud$group5.group8.q18))
+## Pick good names for dataframe
+colnames(teste) <- c("code", "Freq")
+### Convert vars into character
+teste$code  <- as.character(teste$code)
+listCountries$code  <- as.character(listCountries$code)
+listCountries$local_name  <- as.character(listCountries$local_name)
+# Merge table and list of codes
+table1  <- merge(teste, listCountries, by = "code")
+
+# Subset the data for coutries that answered the survey at least once 
+table2  <- subset(table1, table1$Freq > 0)
+# Create data from two variables - frequency and English name
+finalCountryTable  <- table2[, c("Freq", "en_name", "region")]
+# Sort the data
+sorted  <- finalCountryTable[order(-finalCountryTable$Freq),  ]
+print(sorted)
+# Row 13 is from Antarctica! What to do in this case?
+write.csv(sorted, "freqTablebyCountry.csv")
+```
+
+

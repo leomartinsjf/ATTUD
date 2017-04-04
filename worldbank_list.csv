@@ -1,0 +1,46 @@
+;code;Freq;local_name;n;en_name;Group;Group
+5;a14;1;Antarctica;8;Antarctica;Non-classified;High Income
+13;a18;6;Argentina;10;Argentina;High income: nonOECD;High Income
+23;a22;19;Australia;13;Australia;High income: OECD;High Income
+30;a25;1;Bangladesh;18;Bangladesh;Lower middle income;High Income
+31;a28;1;Belgique/Belgie;21;Belgium;High income: OECD;High Income
+33;a38;4;Brasil;29;Brazil;Upper middle income;High Income
+34;a40;1;Burkina Faso;32;Burkina Faso;Low income;High Income
+35;a45;8;Canada;36;Canada;High income: OECD;High Income
+37;a48;3;Chile;41;Chile;High income: OECD;High Income
+36;a47;3;Ceska Republika;55;Czech Republic;High income: OECD;High Income
+38;a59;1;Danmark;56;Denmark;High income: OECD;High Income
+40;a66;1;Ecuador;61;Ecuador;Upper middle income;High Income
+4;a135;5;Misr;62;Egypt;Lower middle income;High Income
+44;a76;2;France;72;France;High income: OECD;High Income
+14;a182;1;Sak'art'velo;78;Georgia;Lower middle income;High Income
+39;a61;2;Deutschland;79;Germany;High income: OECD;High Income
+42;a70;1;Ellas or Ellada;83;Greece;High income: OECD;High Income
+32;a32;4;Bharat;98;India;Lower middle income;High Income
+41;a68;7;Ã‰ire;102;Ireland;High income: OECD;High Income
+29;a234;6;Yisra'el;103;Israel;High income: OECD;High Income
+1;a103;2;Jamaica;105;Jamaica;Upper middle income;High Income
+45;a8;3;Al Urdun;107;Jordan;Upper middle income;High Income
+2;a108;1;Kenya;109;Kenya;Lower middle income;High Income
+3;a127;3;Malaysia;129;Malaysia;Upper middle income;High Income
+6;a148;1;Nepal;150;Nepal;Low income;High Income
+11;a17;1;Aotearoa;154;New Zealand;High income: OECD;Low income/ Lower middle income
+7;a151;5;Nigeria;157;Nigeria;Lower middle income;Low income/ Lower middle income
+15;a183;1;Saltanat Uman;161;Oman;High income: nonOECD;Low income/ Lower middle income
+8;a158;1;Pakistan;162;Pakistan;Lower middle income;Low income/ Lower middle income
+9;a162;1;Peru;168;Peru;Upper middle income;Low income/ Lower middle income
+10;a167;1;Portugal;172;Portugal;High income: OECD;Low income/ Lower middle income
+18;a2;1;Al Arabiyah as Suudiyah;185;Saudi Arabia;High income: nonOECD;Low income/ Lower middle income
+17;a192;1;Singapore;190;Singapore;High income: nonOECD;Low income/ Lower middle income
+43;a71;11;EspaÃ±a;197;Spain;High income: OECD;Low income/ Lower middle income
+21;a21;1;As-Sudan;199;Sudan;Lower middle income;Low income/ Lower middle income
+19;a206;1;Sverige;202;Sweden;High income: OECD;Low income/ Lower middle income
+16;a187;1;Schweiz (German), Suisse (French), Svizzera (Italian);203;Switzerland;High income: OECD;Low income/ Lower middle income
+20;a208;19;T'ai-wan;205;Taiwan (Republic of China);High income: nonOECD;Non-classified
+22;a218;1;Turkiye;216;Turkey;Upper middle income;Upper middle income
+24;a222;1;Uganda;220;Uganda;Low income;Upper middle income
+25;a224;1;United Kingdom;223;United Kingdom;High income: OECD;Upper middle income
+26;a225;19;United States;224;United States;High income: OECD;Upper middle income
+12;a171;2;Republica Oriental del Uruguay;225;Uruguay;High income: nonOECD;Upper middle income
+27;a228;2;Venezuela;229;Venezuela;High income: nonOECD;Upper middle income
+28;a229;1;Viet Nam;230;Vietnam;Lower middle income;Upper middle income

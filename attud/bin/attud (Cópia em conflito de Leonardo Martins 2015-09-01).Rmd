@@ -1,0 +1,142 @@
+---
+title: "Attud - Brief Report - Updated"
+author: "Henrique Pinto Gomide"
+date: "09-01-2015"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    highlight: tango
+    number_sections: yes
+    theme: spacelab
+    toc: yes
+---
+
+# Introduction
+
+This is the first report about the survey "International Needs for Treating Tobacco Use". The survey has as the main objective understand the needs of tobacco treatment provider.
+
+Be advised, this is not the final report, so it may contain errors.
+
+# Method
+
+All technology (until this date) are freely available on internet. This report was generated using R. 
+
+# Results
+```{r include=FALSE, message=FALSE}
+# Load dataframe
+require("ggplot2")
+require("sjPlot")
+# attud <- read.csv("Attud_Table_All_Countries010915.csv", na.strings="n/a")
+attud <- read.delim("attud_010915.txt", header=T, comment.char="#", na.strings="n/a")
+attud <- attud[-122, ] # Remove my test (ID 113 ? Is that ok ? )
+sjp.setTheme(axis.textsize.y = .9, axis.textsize.x = .8)
+```
+
+## Sample characteristics
+
+We have gotten so far `r dim(attud)[1]` participants.
+
+## Age
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+# Convert negative value into NA attud$group5.group8.q15. I checked the case and it seems that was a real person, but the age was wrong.
+attud$group5.group8.q15 <- ifelse(attud$group5.group8.q15 < 0, NA, attud$group5.group8.q15)
+ggplot(attud, aes(x=group5.group8.q15)) + geom_histogram(aes(fill = ..count..), binwidth = 6) + xlab("Age (years)") + ylab("Frequency")
+```
+
+## Sex
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.group8.q16 <- factor(attud$group5.group8.q16, labels = c("Male", "Female"))
+sjp.frq(attud$group5.group8.q16, geom.colors = "#fc8d59")
+```
+
+## What is your profession?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.group8.q17 <- factor(attud$group5.group8.q17, labels = c("Physician", "Nurse","Psychologist", "Pharmacist", "Social worker", "Dentist", "Nurse assistant", "Community health worker", "Other"))
+sjp.frq(attud$group5.group8.q17, geom.colors = "#91bfdb", coord.flip = TRUE,  sort.frq = "asc")
+```
+
+## Are you a member of Attud?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.group8.q19 <- factor(attud$group5.group8.q19, labels = c("Yes", "No", "Not sure"))
+sjp.frq(attud$group5.group8.q19, geom.colors = "#fc8d59")
+```
+
+# Practioner Role and Trainning
+
+## How did you learn how to treat tobacco dependence?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+question1  <- attud[, 1:7]
+q1labels  <- c("Studied written materials", "Studied information on web", "Received instruction during my health profession education", "Completed an online training course designed for tobacco treatment", "Attended an in-person training designed for tobacco treatment", "Never learned how to treat tobacco", "None of the above")
+sjp.likert(question1, catcount = 2, geom.colors = c("#fc8d59","#91bfdb"), legendLabels = c("No","Yes"), axisLabels.y = q1labels, gridBreaksAt = .4)
+```
+
+##  What tobacco treatment activities do you currently perform?
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+question2  <- attud[, 9:14]
+q2labels  <- c("Treat tobacco users","Train others how to treat tobacco users", "Administer programs that treat tobacco", "Conduct research on tobacco treatment", "Develop policy related to tobacco treatment", "Other")
+sjp.likert(question2, catcount = 2, geom.colors = c("#fc8d59","#91bfdb"), legendLabels = c("No","Yes"), axisLabels.y = q2labels, gridBreaksAt = .4)
+```
+
+# Tobacco Treatment Training in Your Country
+
+## Think back to your professional training curriculum. About how many hours of instruction in how to treat tobacco dependence were provided?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.q3 <- factor(attud$group5.q3, labels = c("0 hours", "1-2 hours", "3-4 hours", "5-6 hours", "More than 6 hours"))
+sjp.frq(attud$group5.q3, geom.colors = "#91bfdb", coord.flip = TRUE, labelPos = "inside")
+```
+
+## Outside of health care provider education, is any form of training for treating tobacco dependence available in your country?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.q4 <- factor(attud$group5.q4, labels = c("Yes", "No", "Not sure"))
+# sjp.frq(attud$group5.q4, geom.colors = "#fc8d59")
+```
+
+## Overall, how would you rate access to tobacco treatment training in your country?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+# Something may be wrong here. In the questionnaire are 6 options, but in the data just 4.
+#attud$group5.q5 <- factor(attud$group5.q5, labels = c("Very Poor", "Poor", "Good", "Very Good"))
+#sjp.frq(attud$group5.q5, geom.colors = "#91bfdb", coord.flip = TRUE, labelPos = "inside")
+```
+
+## Overall, how would you rate the quality of the tobacco treatment training that is available in your country?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.q6 <- factor(attud$group5.q6, labels = c("No access", "Very poor access", "Poor access", "Good access", "Very good access", "Not sure"))
+sjp.frq(attud$group5.q6, geom.colors = "#91bfdb", coord.flip = TRUE, labelPos = "inside")
+```
+
+## Does your country have any form of professional certification for tobacco treatment?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.q8 <- factor(attud$group5.q8, labels = c("Yes", "No", "Not sure"))
+sjp.frq(attud$group5.q8, geom.colors = "#fc8d59")
+```
+
+
+# Guidelines for Tobacco Treatment
+
+## Does your country have national guidelines for the treatment of tobacco dependence?
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$group5.group7.q11 <- factor(attud$group5.group7.q11, labels = c("Yes", "No", "Not sure"))
+sjp.frq(attud$group5.group7.q11, geom.colors = "#fc8d59")
+```
+
+# Survey Collection
+
+## Access over time
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+attud$X_submission_time  <- as.character(attud$X_submission_time)
+attud$X_submission_time <- gsub('T.*', '', attud$X_submission_time)
+attud$time  <- as.Date(attud$X_submission_time, format="%Y-%m-%d")
+ggplot(attud, aes(time)) + geom_density(colour = "#91bfdb", fill="#91bfdb") + labs(x = "Month", y = "Frequency") 
+```

@@ -1,0 +1,46 @@
+code;Freq;local_name;n;en_name;Group;
+a18;6;Argentina;10;Argentina;High income: nonOECD;High income
+a183;1;Saltanat Uman;161;Oman;High income: nonOECD;High income
+a2;1;Al Arabiyah as Suudiyah;185;Saudi Arabia;High income: nonOECD;High income
+a192;1;Singapore;190;Singapore;High income: nonOECD;High income
+a208;19;T'ai-wan;205;Taiwan (Republic of China);High income: nonOECD;High income
+a171;2;Republica Oriental del Uruguay;225;Uruguay;High income: nonOECD;High income
+a228;2;Venezuela;229;Venezuela;High income: nonOECD;High income
+a22;19;Australia;13;Australia;High income: OECD;High income
+a28;1;Belgique/Belgie;21;Belgium;High income: OECD;High income
+a45;8;Canada;36;Canada;High income: OECD;High income
+a48;3;Chile;41;Chile;High income: OECD;High income
+a47;3;Ceska Republika;55;Czech Republic;High income: OECD;High income
+a59;1;Danmark;56;Denmark;High income: OECD;High income
+a76;2;France;72;France;High income: OECD;High income
+a61;2;Deutschland;79;Germany;High income: OECD;High income
+a70;1;Ellas or Ellada;83;Greece;High income: OECD;High income
+a68;7;íŠire;102;Ireland;High income: OECD;High income
+a234;6;Yisra'el;103;Israel;High income: OECD;High income
+a17;1;Aotearoa;154;New Zealand;High income: OECD;High income
+a167;1;Portugal;172;Portugal;High income: OECD;High income
+a71;11;Espaí±a;197;Spain;High income: OECD;High income
+a206;1;Sverige;202;Sweden;High income: OECD;High income
+a187;1;Schweiz (German), Suisse (French), Svizzera (Italian);203;Switzerland;High income: OECD;High income
+a224;1;United Kingdom;223;United Kingdom;High income: OECD;High income
+a225;19;United States;224;United States;High income: OECD;High income
+a40;1;Burkina Faso;32;Burkina Faso;Low income;Low / Lower middle income
+a148;1;Nepal;150;Nepal;Low income;Low / Lower middle income
+a222;1;Uganda;220;Uganda;Low income;Low / Lower middle income
+a25;1;Bangladesh;18;Bangladesh;Lower middle income;Low / Lower middle income
+a135;5;Misr;62;Egypt;Lower middle income;Low / Lower middle income
+a182;1;Sak'art'velo;78;Georgia;Lower middle income;Low / Lower middle income
+a32;4;Bharat;98;India;Lower middle income;Low / Lower middle income
+a108;1;Kenya;109;Kenya;Lower middle income;Low / Lower middle income
+a151;5;Nigeria;157;Nigeria;Lower middle income;Low / Lower middle income
+a158;1;Pakistan;162;Pakistan;Lower middle income;Low / Lower middle income
+a21;1;As-Sudan;199;Sudan;Lower middle income;Low / Lower middle income
+a229;1;Viet Nam;230;Vietnam;Lower middle income;Low / Lower middle income
+a14;1;Antarctica;8;Antarctica;Non-classified;Non-classified
+a38;4;Brasil;29;Brazil;Upper middle income;Upper middle income
+a66;1;Ecuador;61;Ecuador;Upper middle income;Upper middle income
+a103;2;Jamaica;105;Jamaica;Upper middle income;Upper middle income
+a8;3;Al Urdun;107;Jordan;Upper middle income;Upper middle income
+a127;3;Malaysia;129;Malaysia;Upper middle income;Upper middle income
+a162;1;Peru;168;Peru;Upper middle income;Upper middle income
+a218;1;Turkiye;216;Turkey;Upper middle income;Upper middle income

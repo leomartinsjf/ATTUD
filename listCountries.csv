@@ -1,0 +1,238 @@
+;local_name;code;n;en_name;region
+1;Afghanestan;a1;1;Afghanistan;South-Central Asia
+2;Al Arabiyah as Suudiyah;a2;185;Saudi Arabia;Arabian Peninsula, Middle East
+3;Al Bahrayn;a3;17;Bahrain;Arabian Peninsula, Middle East
+4;Al Imarat al Arabiyah al Muttahidah;a4;222;United Arab Emirates;Arabian Peninsula, Middle East
+5;Al Jaza'ir;a5;3;Algeria;Northern Africa
+6;Al Kuwayt;a6;114;Kuwait;Middle East, Western Asia
+7;Al Maghrib;a7;145;Morocco;Northern Africa
+8;Al Urdun;a8;107;Jordan;Middle East, Western Asia
+9;Al Yaman;a9;235;Yemen;Arabian Peninsula, Middle East
+10;American Samoa;a10;4;American Samoa;Polynesia, Oceania
+11;Andorra;a11;5;Andorra;Southern Europe
+12;Angola;a12;6;Angola;Central Africa
+13;Anguilla;a13;7;Anguilla;Leeward Islands, Caribbean
+14;Antarctica;a14;8;Antarctica;Antarctica
+15;Antigua and Barbuda;a15;9;Antigua and Barbuda;Leeward Islands, Caribbean
+16;Aomen;a16;125;Macau;Eastern Asia
+17;Aotearoa;a17;154;New Zealand;Oceania
+18;Argentina;a18;10;Argentina;Southern South America
+19;Aruba;a19;12;Aruba;Leeward Islands, Caribbean
+20;Aá_£-á_¢aá¸¥rÄÅâ€™ al-GharbÄ«yah;a20;234;Western Sahara;Northern Africa
+21;As-Sudan;a21;199;Sudan;Northern Africa
+22;Australia;a22;13;Australia;Australia
+23;Azarbaycan;a23;15;Azerbaijan;Caucasus, Western Asia
+24;Bahamas;a24;16;Bahamas;Caribbean
+25;Bangladesh;a25;18;Bangladesh;South-Central Asia
+26;Barbados;a26;19;Barbados;Lesser Antilles, Caribbean
+27;Belau;a27;163;Palau;Micronesia, Oceania
+28;Belgique/Belgie;a28;21;Belgium;Western Europe
+29;Belize;a29;22;Belize;Central America
+30;Benin;a30;23;Benin;West Africa
+31;Bermuda;a31;24;Bermuda;North America
+32;Bharat;a32;98;India;South-Central Asia
+33;Bhutan;a33;25;Bhutan;South-Central Asia
+34;Bod;a34;209;Tibet;South-Central Asia
+35;Bolivia;a35;26;Bolivia;Central South America
+36;Bosna i Hercegovina;a36;27;Bosnia and Herzegovina;Southern Europe
+37;Botswana;a37;28;Botswana;Southern Africa
+38;Brasil;a38;29;Brazil;Central Eastern South America
+39;Bulgaria;a39;31;Bulgaria;Eastern Europe
+40;Burkina Faso;a40;32;Burkina Faso;West Africa
+41;Burundi;a41;33;Burundi;Eastern Africa, African Great Lakes
+42;Byelarus;a42;20;Belarus;Eastern Europe
+43;Cabo Verde;a43;37;Cape Verde;West Africa
+44;Cameroon;a44;35;Cameroon;Central Africa
+45;Canada;a45;36;Canada;North North America
+46;Cayman Islands;a46;38;Cayman Islands;Greater Antilles, Caribbean
+47;Ceska Republika;a47;55;Czech Republic;Eastern Europe
+48;Chile;a48;41;Chile;Western South America
+49;Choson;a49;111;Korea, Democratic People's Rep. (North Korea);Eastern Asia
+50;Christmas Island;a50;43;Christmas Island;Southeast Asia
+51;Cocos (Keeling) Islands;a51;44;Cocos (Keeling) Islands;South-East Asia, Australia
+52;Colombia;a52;45;Colombia;North West South America
+53;Comores;a53;46;Comoros;Eastern Africa
+54;Cook Islands;a54;49;Cook Islands;Polynesia, Oceania
+55;Costa Rica;a55;50;Costa Rica;Central America
+56;Cote d'Ivoire;a56;51;Ivory Coast;West Africa
+57;Crna Gora;a57;143;Montenegro;Southern Europe
+58;Cuba;a58;53;Cuba;Greater Antilles, Caribbean
+59;Danmark;a59;56;Denmark;Northern Europe
+60;Dawlat Qatar;a60;174;Qatar;Arabian Peninsula, Middle East
+61;Deutschland;a61;79;Germany;Western Europe
+62;Dhivehi Raajje;a62;130;Maldives;South-Central Asia
+63;Djibouti;a63;57;Djibouti;Eastern Africa
+64;Dominica;a64;58;Dominica;Lesser Antilles, Caribbean
+65;Dominicana, Republica;a65;59;Dominican Republic;Greater Antilles, Caribbean
+66;Ecuador;a66;61;Ecuador;North West South America
+67;Eesti Vabariik;a67;66;Estonia;Northern Europe
+68;Ã‰ire;a68;102;Ireland;Northern Europe
+69;El Salvador;a69;63;El Salvador;Central America
+70;Ellas or Ellada;a70;83;Greece;Southern Europe
+71;EspaÃ±a;a71;197;Spain;Southern Europe
+72;Estados Unidos Mexicanos;a72;138;Mexico;North America
+73;Fiji;a73;70;Fiji;Melanesia, Oceania
+74;Filastin;a74;164;Palestinian territories;Middle East, Western Asia
+75;Foroyar;a75;69;Faroe Islands;Northern Europe
+76;France;a76;72;France;Western Europe
+77;Gabon;a77;76;Gabon;Central Africa
+78;Ghana;a78;80;Ghana;West Africa
+79;Gibraltar;a79;81;Gibraltar;Southern Europe
+80;Great Britain;a80;82;Great Britain;Northern Europe
+81;Grenada;a81;85;Grenada;Lesser Antilles, Caribbean
+82;Guadeloupe;a82;86;Guadeloupe;Lesser Antilles, Caribbean
+83;Guam;a83;87;Guam;Micronesia, Oceania
+84;Guatemala;a84;88;Guatemala;Central America
+85;Guine-Bissau;a86;90;Guinea-Bissau;West Africa
+86;Guinea Ecuatorial;a85;64;Equatorial Guinea;Central Africa
+87;Guinee;a87;89;Guinea;West Africa
+88;Guyana;a88;91;Guyana;North Eastern South America
+89;Guyane;a89;73;French Guiana;Northern South America
+90;Hagere Ertra;a90;65;Eritrea;Eastern Africa
+91;Haiti;a91;92;Haiti;Greater Antilles, Caribbean
+92;Han-guk;a92;112;Korea, Republic of (South Korea);Eastern Asia
+93;Hayastan;a93;11;Armenia;Western Asia
+94;Honduras;a94;94;Honduras;Central America
+95;Hrvatska;a95;52;Croatia;Southern Europe
+96;Ile de la RÃ©union;a96;175;Reunion Island;Eastern Africa
+97;Indonesia;a97;99;Indonesia;Maritime South-East Asia
+98;Iran;a98;100;Iran (Islamic Republic of);South-Central Asia
+99;Iraq;a99;101;Iraq;Middle East, Western Asia
+100;Islas Malvinas;a100;68;Falkland Islands;Southern South America
+101;Italia;a101;104;Italy;Southern Europe
+102;Ityop'iya;a102;67;Ethiopia;Eastern Africa
+103;Jamaica;a103;105;Jamaica;Greater Antilles, Caribbean
+104;Jamhuri ya Muungano wa Tanzania;a104;207;Tanzania;
+105;Jumhurii Tojikiston;a105;206;Tajikistan;Central Asia
+106;Kalaallit Nunaat;a106;84;Greenland;North America
+107;Kampuchea;a107;34;Cambodia;South-East Asia
+108;Kenya;a108;109;Kenya;Eastern Africa
+109;Kibris, Kypros;a109;54;Cyprus;Mediterranean, Western Asia
+110;Kiribati, Kiribas;a110;110;Kiribati;Micronesia, Oceania
+111;Kyrgyz Respublikasy;a112;115;Kyrgyzstan;Central Asia
+112;Lao;a113;116;Lao, People's Democratic Republic;South-East Asia
+113;Latvija;a114;117;Latvia;Northern Europe
+114;Lesotho;a115;119;Lesotho;Southern Africa
+115;Liberia;a116;120;Liberia;West Africa
+116;Libiyah;a117;121;Libya;Northern Africa
+117;Liechtenstein;a118;122;Liechtenstein;Western Europe
+118;Lietuva;a119;123;Lithuania;Northern Europe
+119;Lubnan;a120;118;Lebanon;Middle East, Western Asia
+120;Luxembourg, Letzebuerg;a121;124;Luxembourg;Western Europe
+121;Lyoveldio Island;a122;97;Iceland;Northern Europe
+122;Madagascar;a123;127;Madagascar;Eastern Africa
+123;Magyarorszag;a124;96;Hungary;Eastern Europe
+124;Makedonija;a125;126;Macedonia, Rep. of;Southern Europe
+125;Malawi;a126;128;Malawi;Eastern Africa
+126;Malaysia;a127;129;Malaysia;Southeast Asia
+127;Mali;a128;131;Mali;West Africa
+128;Malta;a129;132;Malta;Southern Europe
+129;Marshall Islands;a130;133;Marshall Islands;Micronesia, Oceania
+130;Martinique;a131;134;Martinique;Lesser Antilles, Caribbean
+131;Mauritius;a132;136;Mauritius;Eastern Africa
+132;Mayotte;a133;137;Mayotte;Eastern Africa
+133;Micronesia;a134;139;Micronesia, Federal States of;Micronesia, Oceania
+134;Misr;a135;62;Egypt;Africa, Middle East
+135;Mocambique;a136;146;Mozambique;Eastern Africa
+136;Moldova;a137;140;Moldova, Republic of;Eastern Europe
+137;Monaco;a138;141;Monaco;Southern Europe
+138;Mongol Uls;a139;142;Mongolia;Eastern Asia
+139;Montserrat;a140;144;Montserrat;Lesser Antilles, Caribbean
+140;Muritaniyah;a141;135;Mauritania;West Africa
+141;Myanma Naingngandaw;a142;147;Myanmar, Burma;Southeast Asia
+142;Namibia;a143;148;Namibia;Southern Africa
+143;Nauru;a144;149;Nauru;Micronesia, Oceania
+144;Nederland/Holland;a145;151;Netherlands;Western Europe
+145;Nederlandse Antillen;a146;152;Netherlands Antilles;Caribbean
+146;Negara Brunei Darussalam;a147;30;Brunei Darussalam;Southeast Asia
+147;Nepal;a148;150;Nepal;South-Central Asia
+148;Nicaragua;a149;155;Nicaragua;Central America
+149;Niger;a150;156;Niger;West Africa
+150;Nigeria;a151;157;Nigeria;West Africa
+151;Nippon;a152;106;Japan;Eastern Asia
+152;Niue;a153;158;Niue;Polynesia, Oceania
+153;Norge;a154;160;Norway;Northern Europe
+154;Northern Mariana Islands;a155;159;Northern Mariana Islands;Micronesia, Oceania
+155;Nouvelle-CalÃ©donie;a156;153;New Caledonia;Melanesia, Oceania
+156;Ã–sterreich;a157;14;Austria;Western Europe
+157;Pakistan;a158;162;Pakistan;South-Central Asia
+158;Panama;a159;165;Panama;Central America
+159;Papua Niu Gini;a160;166;Papua New Guinea;Maritime Southeast Asia, Melanesia, Oceania
+160;Paraguay;a161;167;Paraguay;Central South America
+161;Peru;a162;168;Peru;Western South America
+162;Pilipinas;a163;169;Philippines;Southeast Asia
+163;Pitcairn Island;a164;170;Pitcairn Island;Polynesia, Oceania
+164;Polska;a165;171;Poland;Eastern Europe
+165;PolynÃ©sie FranÃ§aise;a166;74;French Polynesia;Polynesia, Oceania
+166;Portugal;a167;172;Portugal;Southern Europe
+167;Prathet Thai;a168;208;Thailand;South-East Asia
+168;Puerto Rico;a169;173;Puerto Rico;Greater Antilles, Caribbean
+169;Qazaqstan;a170;108;Kazakhstan;Central Asia
+170;Republica Oriental del Uruguay;a171;225;Uruguay;Central East South America
+171;Republique Centrafricaine;a172;39;Central African Republic;Central Africa
+172;RÃ©publique DÃ©mocratique du Congo;a173;47;Democratic Republic of the Congo (Kinshasa);Central Africa
+173;RÃ©publique du Congo;a174;48;Congo, Republic of (Brazzaville);Central Africa
+174;Republique Togolaise;a175;211;Togo;West Africa
+175;Romania;a176;176;Romania;Eastern Europe
+176;Rossiya;a177;177;Russian Federation;Eastern Europe - Northern Asia
+177;Rwanda;a178;178;Rwanda;Eastern Africa, African Great Lakes
+178;Saint Lucia;a180;180;Saint Lucia;Lesser Antilles, Caribbean
+179;Sak'art'velo;a182;78;Georgia;Western Asia
+180;Saltanat Uman;a183;161;Oman;Middle East
+181;Samoa;a184;182;Samoa;Polynesia, Oceania
+182;San Marino;a185;183;San Marino;Southern Europe within Italy
+183;Sao Tome e Principe;a186;184;Sao Tome and Principe;Central Africa
+184;Schweiz (German), Suisse (French), Svizzera (Italian);a187;203;Switzerland;Western Europe
+185;Senegal;a188;186;Senegal;West Africa
+186;Seychelles;a189;188;Seychelles;Eastern Africa
+187;Shqiperia;a190;2;Albania;Southern Europe
+188;Sierra Leone;a191;189;Sierra Leone;West Africa
+189;Singapore;a192;190;Singapore;Southeast Asia
+190;Slovenija;a193;192;Slovenia;Southern Europe
+191;Slovensko;a194;191;Slovakia (Slovak Republic);Eastern Europe
+192;Solomon Islands;a195;193;Solomon Islands;Melanesia, Oceania
+193;Somalia;a196;194;Somalia;Eastern Africa
+194;South Africa;a197;195;South Africa;Southern Africa
+195;South Sudan;a198;196;South Sudan;East-Central Africa
+196;Srbija;a199;187;Serbia;Southern Europe
+197;Sri Lanka;a200;198;Sri Lanka;South-Central Asia
+198;Status Civitatis VaticanÃ_;a202;93;Holy See;Southern Europe within Italy
+199;Status Civitatis VaticanÃ_;a202;228;Vatican City State (Holy See);Southern Europe within Italy
+200;Status Civitatis VaticanÃ_;a201;93;Holy See;Southern Europe within Italy
+201;Status Civitatis VaticanÃ_;a201;228;Vatican City State (Holy See);Southern Europe within Italy
+202;Suomen Tasavalta;a203;71;Finland;Northern Europe
+203;Suriname;a204;200;Suriname;North-Eastern South America
+204;Suriyah;a205;204;Syria, Syrian Arab Republic;Middle East, Western Asia
+205;Sverige;a206;202;Sweden;Northern Europe
+206;Swaziland;a207;201;Swaziland;Southern Africa
+207;T'ai-wan;a208;205;Taiwan (Republic of China);Eastern Asia
+208;Tchad;a209;40;Chad;Central Africa
+209;Terres Australes et Antarctiques FranÃ§aises;a210;75;French Southern Territories;Southern South America, Antarctic
+210;The Gambia;a211;77;Gambia;West Africa
+211;Timor;a212;60;East Timor (Timor-Leste);South-East Asia
+212;Timor;a212;210;Timor-Leste (East Timor);Maritime South-East Asia
+213;Timor;a213;60;East Timor (Timor-Leste);South-East Asia
+214;Timor;a213;210;Timor-Leste (East Timor);Maritime South-East Asia
+215;Tokelau;a214;212;Tokelau;Oceania/Australia
+216;Tonga;a215;213;Tonga;Polynesia, Oceania
+217;Trinidad, Tobago;a216;214;Trinidad and Tobago;Northern South America, Caribbean
+218;Tunis;a217;215;Tunisia;Northern Africa
+219;Turkiye;a218;216;Turkey;Southeastern Europe, Western Asia
+220;Turkmenistan;a219;217;Turkmenistan;Central Asia
+221;Turks and Caicos Islands;a220;218;Turks and Caicos Islands;Caribbean, parts of the Bahamas island chain.
+222;Tuvalu;a221;219;Tuvalu;Polynesia, Oceania
+223;Uganda;a222;220;Uganda;Eastern Africa
+224;Ukrayina;a223;221;Ukraine;Eastern Europe
+225;United Kingdom;a224;223;United Kingdom;Northern Europe
+226;United States;a225;224;United States;North America
+227;Uzbekiston Respublikasi;a226;226;Uzbekistan;Central Asia
+228;Vanuatu;a227;227;Vanuatu;Melanesia, Oceania
+229;Venezuela;a228;229;Venezuela;Northern South America
+230;Viet Nam;a229;230;Vietnam;South-East Asia
+231;Virgin Islands (British);a230;231;Virgin Islands (British);Lesser Antilles, Caribbean
+232;Wallis et Futuna;a232;233;Wallis and Futuna Islands;Polynesia, Oceania
+233;Xianggang;a233;95;Hong Kong;Eastern Asia
+234;Yisra'el;a234;103;Israel;Middle East, Western Asia
+235;Zambia;a235;236;Zambia;Eastern Africa
+236;Zhong Guo;a236;42;China;Eastern Asia
+237;Zimbabwe;a237;237;Zimbabwe;Eastern Africa
